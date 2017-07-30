@@ -5,7 +5,6 @@ import asyncio
 
 base_url = 'http://jsonplaceholder.typicode.com/{}'
 categories = ['users', 'posts', 'comments', 'albums']
-# categories = ['users']
 # categories = ['users', 'posts', 'comments', 'albums', 'photos', 'todos']
 
 final_data = []
@@ -23,7 +22,7 @@ def get_id_from_json(json_):
 
 
 async def category_get_by_id(category, json_):
-    # print(category, json_)
+    # print('In {} with {} id'.format(category, json_))
     url = base_url.format(category) + '/{}'.format(get_id_from_json(json_))
     html = urllib.request.urlopen(url).read().decode()
     return json.loads(html)
